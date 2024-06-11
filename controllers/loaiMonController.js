@@ -62,3 +62,12 @@ exports.xoa_loai_mon_an = async (req, res, next) => {
         res.status(400).json({"msg": error.message});
     }
 };
+
+exports.lay_danh_sach_loai_mon_an = async (req, res, next) => {
+    try {
+        const danhSachLoaiMonAn = await LoaiMonAn.find().sort({ createdAt: -1 });
+        res.status(200).json(danhSachLoaiMonAn);
+    } catch (error) {
+        res.status(400).json({ "msg": error.message });
+    }
+};

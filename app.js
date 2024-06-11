@@ -18,7 +18,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
@@ -27,6 +27,10 @@ database.connect();
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
+});
+
+app.get('/test-image', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/uploads/hinhAnh-1717998786995-1717998786657.png'));
 });
  
 // error handler

@@ -4,7 +4,8 @@ const loaiMonAnSchema = new mongoose.Schema(
         tenLoaiMon:{type:String, required: true, unique: true},
     },
     {
-        collection: 'LoaiMonAn'
+        collection: 'LoaiMonAn',
+        timestamps: true
     }
 );
 

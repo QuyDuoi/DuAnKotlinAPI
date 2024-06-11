@@ -3,11 +3,12 @@ const monAnSchema = new mongoose.Schema(
     {
         tenMon:{type:String, required: true, unique: true},
         giaMon:{type: Number, require: true},
-        hinhAnh: {type: String, require: true},
+        hinhAnh: {type: String},
         id_loaiMonAn: {type: mongoose.Schema.Types.ObjectId, ref: 'LoaiMonAn'},
     },
     {
-        collection: 'MonAn'
+        collection: 'MonAn',
+        timestamps: true
     }
 );
 
